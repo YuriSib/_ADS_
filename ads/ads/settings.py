@@ -38,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # подключаем ещё приложения
+    
     'django.contrib.sites',
     'django.contrib.flatpages',
+    'tinymce',
+    'advertisement'
+    # 'advertisement.apps.AdvertisementConfig',
 ]
 
 SITE_ID = 1
@@ -56,7 +58,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-    'news',
 ]
 
 ROOT_URLCONF = 'ads.urls'
