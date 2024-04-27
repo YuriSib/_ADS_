@@ -5,7 +5,7 @@ import logging
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, View
 from .models import Ads, Category, Response
-# from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.urls import reverse_lazy
 
 from .forms import AdsForm
@@ -71,3 +71,11 @@ class AdsCreate(CreateView): #(PermissionRequiredMixin, CreateView):
             print('Пост не сохранен')
             print(self.get_context_data(form=form))
             # return redirect('/to_many_post/')
+
+
+class NewsEdit(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
+    permission_required = ('ads.change_ads',)
+    form_class = AdsForm
+    model = Ads
+    template_name = 'ads_edit.html'
+    success_url = reverse_lazy('ads_list')

@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
     'tinymce',
-    'advertisement'
+    'advertisement',
+    'sign'
     # 'advertisement.apps.AdvertisementConfig',
 ]
 
